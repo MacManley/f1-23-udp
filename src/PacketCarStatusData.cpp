@@ -1,0 +1,26 @@
+// File: PacketCarStatusData.cpp
+#include "PacketCarStatusData.h"
+#include <string.h>
+
+PacketCarStatusData::PacketCarStatusData()
+: PHeader()
+{
+
+}
+
+PacketCarStatusData::~PacketCarStatusData()
+{
+}
+
+void PacketCarStatusData::push(char *receiveBuffer)
+{
+    memmove(PHeader::pointerToFirstElement(), receiveBuffer, 1239);
+}
+
+CarStatusData PacketCarStatusData::m_carStatusData(int index)
+{
+    if (index >= 0 && index < 22)
+        return m_carStatusData_[index];
+    else return {0};
+}
+
