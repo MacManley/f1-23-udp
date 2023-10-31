@@ -1,6 +1,6 @@
 //File: simpleserialprint.ino
 
-//#include "Wifi.h" // ESP8266 WiFi include
+//#include "Wifi.h" // ESP32 WiFi include
 #include <ESP8266WiFi.h> // ESP8266 WiFi include
 #include <WiFiUdp.h>
 #include <F1_23_UDP.h>
