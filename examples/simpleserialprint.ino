@@ -41,8 +41,8 @@ void loop()
        parser->push(packetBuffer);
        Serial.print("Speed: ");
 
-       int playerCar = parser->packetCarTelemetryData()->m_playerCarIndex(); //Get the index of the players car in the array.
-       int speed = parser->packetCarTelemetryData()->m_carTelemetryData(playerCar).m_speed; //Speed of the car, inputting "playerCar" for the speed of the players car.
+       unsigned int playerCar = parser->packetCarTelemetryData()->m_playerCarIndex(); //Get the index of the players car in the array.
+       unsigned int speed = parser->packetCarTelemetryData()->m_carTelemetryData(playerCar).m_speed; //Speed of the car, inputting "playerCar" for the speed of the players car.
 
        Serial.println(speed);
   }
