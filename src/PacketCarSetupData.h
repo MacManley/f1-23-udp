@@ -41,7 +41,6 @@ public:
     CarSetupData m_carSetups(int index);
     void push(char *receiveBuffer);
 
-
 private:
     CarSetupData m_carSetups_[22];
 };

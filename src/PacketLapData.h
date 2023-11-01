@@ -11,9 +11,9 @@ struct LapData
     uint32_t m_lastLapTimeInMS; // Last lap time in milliseconds
     uint32_t m_currentLapTimeInMS; // Current time around the lap in milliseconds
     uint16_t m_sector1TimeInMS; // Sector 1 time in milliseconds
-    uint16_t m_sector1TimeMinutes;
+    uint8_t m_sector1TimeMinutes;
     uint16_t m_sector2TimeInMS; // Sector 2 time in milliseconds
-    uint16_t m_sector2TimeMinutes;
+    uint8_t m_sector2TimeMinutes;
     uint16_t m_deltaToCarInFrontInMS;
     uint16_t  m_deltaToRaceLeaderInMS;
     float m_lapDistance; // Distance vehicle is around current lap in metres – could

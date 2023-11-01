@@ -39,7 +39,7 @@ public:
     uint8_t m_bestSector1LapNum(void);
     uint8_t m_bestSector2LapNum(void);
     uint8_t m_bestSector3LapNum(void);
-    LapHistoryData m_lapHistoryData(int index);
+    LapHistoryData m_lapHistoryData(char index);
     TyreStintHistoryData m_tyreStintsHistoryData(char index);
     void push(char *receiveBuffer);
 

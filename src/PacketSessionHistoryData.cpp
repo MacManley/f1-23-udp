@@ -49,7 +49,7 @@ uint8_t PacketSessionHistoryData::m_bestSector3LapNum(void)
     return m_bestSector3LapNum_;
 }
 
-LapHistoryData PacketSessionHistoryData::m_lapHistoryData(int index)
+LapHistoryData PacketSessionHistoryData::m_lapHistoryData(char index)
 {
     if (index >= 0 && index < 100)
         return m_lapHistoryData_[index];

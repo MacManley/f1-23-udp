@@ -15,7 +15,7 @@ struct TyreSetData {
     uint8_t m_recommendedSession;
     uint8_t m_lifeSpan;
     uint8_t m_useableLife;
-    uint8_t m_lapDeltaTime;
+    int16_t m_lapDeltaTime;
     uint8_t m_fitted;
 };
 

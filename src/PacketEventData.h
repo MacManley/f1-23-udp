@@ -84,7 +84,7 @@ union EventDataDetails
     {
         uint8_t overtakingVehicleIdx;
         uint8_t beingOvertakenVehicleIdx;
-    } OvertakeData;
+    } Overtake;
     
 };
 

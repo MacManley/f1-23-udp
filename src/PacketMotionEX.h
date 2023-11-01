@@ -26,7 +26,7 @@ struct MotionEXData {
     float m_angularAccelerationY; // Angular velocity y-component
     float m_angularAccelerationZ; // Angular velocity z-component
     float m_frontWheelsAngle; // Current front wheels angle in radians
-    float m_wheelVertForce; // Vertical forces for each wheel
+    float m_wheelVertForce[4]; // Vertical forces for each wheel
 };
 
 class PacketMotionEXData : public PHeader

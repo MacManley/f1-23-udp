@@ -13,8 +13,7 @@ struct LobbyInfoData
     uint8_t m_teamId;
     uint8_t m_nationality;
     uint8_t m_platform;
-    uint8_t m_name[48];
-
+    char m_name[48];
     uint8_t m_carNumber;
     uint8_t m_readyStatus;
 };
