@@ -24,7 +24,7 @@ uint8_t LapDataPacket::m_timeTrialRivalCarIdx(void)
     return m_timeTrialRivalCarIdx_;
 }
 
-LapData LapDataPacket::m_lapData(char index)
+LapData LapDataPacket::m_lapData(int index)
 {
     if (index >= 0 && index < 22)
         return m_lapData_[index];

@@ -15,9 +15,9 @@ void PacketLobbyInfo::push(char *receiveBuffer)
     memmove(PHeader::pointerToFirstElement(), receiveBuffer, 1218);
 }
 
-uint8_t m_numofCars(void)
+uint8_t PacketLobbyInfo::m_numofCars(void)
 {
-    return m_numofCars();
+    return m_numofCars_;
 }
 
 LobbyInfoData PacketLobbyInfo::m_lobbyPlayers(int index)

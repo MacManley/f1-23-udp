@@ -49,7 +49,7 @@ class LapDataPacket : public PHeader
 public:
     LapDataPacket();
     virtual ~LapDataPacket();
-    LapData m_lapData(char index);
+    LapData m_lapData(int index);
     uint8_t m_timeTrialPBCarIdx(void);
     uint8_t m_timeTrialRivalCarIdx(void);
     void push(char *receiveBuffer);
