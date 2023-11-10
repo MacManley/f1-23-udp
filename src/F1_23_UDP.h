@@ -26,7 +26,7 @@ public:
     void push(char * recieveBuffer);
     PacketMotionData* packetMotionData(void);
     PacketSessionData* packetSessionData(void);
-    LapDataPacket* packetLapData(void);
+    PacketLapData* packetLapData(void);
     PacketEventData* packetEventData(void);
     PacketParticipantData* packetParticipantData(void);
     PacketCarSetupData* packetCarSetupData(void);
@@ -42,7 +42,7 @@ public:
 private:
     PacketMotionData* packetMotionData_;
     PacketSessionData* packetSessionData_;
-    LapDataPacket* packetLapData_;
+    PacketLapData* packetLapData_;
     PacketEventData* packetEventData_;
     PacketParticipantData* packetParticipantData_;
     PacketCarSetupData* packetCarSetupData_;

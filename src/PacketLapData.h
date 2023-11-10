@@ -1,6 +1,6 @@
 // File: PacketLapData.h
-#ifndef LAPDATAPACKET_H
-#define LAPDATAPACKET_H
+#ifndef PACKETLAPDATA_H
+#define PACKETLAPDATA_H
 
 #include "PHeader.h"
 
@@ -44,11 +44,11 @@ struct LapData
     uint8_t m_pitStopShouldServePen; // Whether the car should serve a penalty at this stop
 };
 
-class LapDataPacket : public PHeader
+class PacketLapData : public PHeader
 {
 public:
-    LapDataPacket();
-    virtual ~LapDataPacket();
+    PacketLapData();
+    virtual ~PacketLapData();
     LapData m_lapData(int index);
     uint8_t m_timeTrialPBCarIdx(void);
     uint8_t m_timeTrialRivalCarIdx(void);

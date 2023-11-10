@@ -2,29 +2,29 @@
 #include "PacketLapData.h"
 #include <string.h>
 
-LapDataPacket::LapDataPacket()
+PacketLapData::PacketLapData()
 : PHeader()
 {}
 
-LapDataPacket::~LapDataPacket()
+PacketLapData::~PacketLapData()
 {}
 
-void LapDataPacket::push(char *receiveBuffer)
+void PacketLapData::push(char *receiveBuffer)
 {
     memmove(PHeader::pointerToFirstElement(), receiveBuffer, 1131);
 }
 
-uint8_t LapDataPacket::m_timeTrialPBCarIdx(void)
+uint8_t PacketLapData::m_timeTrialPBCarIdx(void)
 {
     return m_timeTrialPBCarIdx_;
 }
 
-uint8_t LapDataPacket::m_timeTrialRivalCarIdx(void)
+uint8_t PacketLapData::m_timeTrialRivalCarIdx(void)
 {
     return m_timeTrialRivalCarIdx_;
 }
 
-LapData LapDataPacket::m_lapData(int index)
+LapData PacketLapData::m_lapData(int index)
 {
     if (index >= 0 && index < 22)
         return m_lapData_[index];

@@ -21,7 +21,7 @@ F1_23_Parser::F1_23_Parser()
 {
     packetMotionData_ = new PacketMotionData();
     packetSessionData_ = new PacketSessionData();
-    packetLapData_ = new LapDataPacket();
+    packetLapData_ = new PacketLapData();
     packetEventData_ = new PacketEventData();
     packetParticipantData_ = new PacketParticipantData();
     packetCarSetupData_ = new PacketCarSetupData();
@@ -105,7 +105,7 @@ PacketSessionData* F1_23_Parser::packetSessionData(void)
     return packetSessionData_;
 }
 
-LapDataPacket* F1_23_Parser::packetLapData(void)
+PacketLapData* F1_23_Parser::packetLapData(void)
 {
     return packetLapData_;
 }
