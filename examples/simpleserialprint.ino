@@ -13,7 +13,6 @@ void startWiFi();
 //The IP address that this ESP32 / ESP8266 has requested to be assigned to.
 IPAddress ip();
 WiFiUDP Udp;
-int flag = 0;
 
 unsigned int localPort = 20777; // Port that is used in game, default is 20777
 
