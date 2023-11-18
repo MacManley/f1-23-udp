@@ -870,8 +870,11 @@ You should see the tag:
 <motion>
 
 ...
+
   <udp enabled="false" broadcast=”false” ip="127.0.0.1" port="20777" sendRate=”20” format=”2023” yourTelemetry=”restricted” onlineNames="off" />
+
 ...
+
 
 </motion>
 
@@ -993,7 +996,9 @@ You should see the tag:
 
   <motion>
 ...
+      
     <dbox enabled="false" />
+
 ...
 
   </motion>
@@ -1031,7 +1036,9 @@ You should see the tag:
    <motion>
 
 ...
+
      <udp enabled="false" broadcast=”false” ip="127.0.0.1" port="20777" sendRate=”20” format=”2023” yourTelemetry="restricted" onlineNames="off" />
+
 ...
 
    </motion>
