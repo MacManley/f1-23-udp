@@ -4,7 +4,7 @@
 This program captures and parses packets that are sent by the F1 2023 game. This library is written specifically for usage on the ESP32 and ESP8266.
 
 # Usage:
-```C++
+```C
 #include "F1_23_UDP.h"
 F1_23_Parser* parser;
 
@@ -13,6 +13,7 @@ void loop()
     parser = new F1_23_Parser();
     parser->push(*buffer)
 }
+
 ```
 
 ## Overview
@@ -869,9 +870,7 @@ You should see the tag:
 <motion>
 
 ...
-
   <udp enabled="false" broadcast=”false” ip="127.0.0.1" port="20777" sendRate=”20” format=”2023” yourTelemetry=”restricted” onlineNames="off" />
-
 ...
 
 </motion>
@@ -916,15 +915,7 @@ All wheel arrays are in the following order:
 ## **Do the vehicle indices change?**
 During a session, each car is assigned a vehicle index. This will not change throughout the session and all the arrays that are sent use this vehicle index to dereference the correct piece of data.
 
-## **What are the co-ordinate systems used?**
 
-Here is a visual representation of the co-ordinate system used with the F1 telemetry data.
-
-![Diagram
-
-Description automatically generated](Aspose.Words.01edf42c-17a2-49a2-965c-e50b14328043.002.png) ![Logo
-
-Description automatically generated with low confidence](Aspose.Words.01edf42c-17a2-49a2-965c-e50b14328043.003.png)
 
 ## **What encoding format is used?**
 All values are encoded using Little Endian format.
@@ -1001,9 +992,8 @@ D-BOX output is currently supported on the PC platform. In F1 23, the D-BOX acti
 You should see the tag:
 
   <motion>
-
+...
     <dbox enabled="false" />
-
 ...
 
   </motion>
@@ -1041,9 +1031,7 @@ You should see the tag:
    <motion>
 
 ...
-
      <udp enabled="false" broadcast=”false” ip="127.0.0.1" port="20777" sendRate=”20” format=”2023” yourTelemetry="restricted" onlineNames="off" />
-
 ...
 
    </motion>
@@ -1424,6 +1412,3 @@ These flags are used in the telemetry packet to determine if any buttons are bei
 F1® 23 Game - an official product of the FIA Formula One World Championship™.
 
 The F1 Formula 1 logo, F1 logo, Formula 1, F1, FIA FORMULA ONE WORLD CHAMPIONSHIP, GRAND PRIX and related marks are trademarks of Formula One Licensing BV, a Formula 1 company. © 2023 Cover images Formula One World Championship Limited, a Formula 1 company. Licensed by Formula One World Championship Limited. The F2 FIA Formula 2 CHAMPIONSHIP logo, FIA Formula 2 CHAMPIONSHIP, FIA Formula 2, Formula 2, F2 and related marks are trademarks of the Federation Internationale de l’Automobile and used exclusively under licence.  All rights reserved. The FIA and FIA AfRS logos are trademarks of Federation Internationale de l’Automobile. All rights reserved.
-
-
-**---===END OF DOCUMENT===---**
