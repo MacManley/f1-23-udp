@@ -21,8 +21,8 @@ struct CarStatusData
     uint16_t m_idleRPM; // Cars idle RPM
     uint8_t m_maxGears; // Maximum number of gears
     uint8_t m_drsAllowed; // 0 = not allowed, 1 = allowed
-    uint16_t m_drsActivationDistance; // 0 = DRS not available, non-zero - DRS will be available
-    // in [X] metres
+    uint16_t m_drsActivationDistance; // 0 = DRS not available, non-zero - DRS will be available 
+    //in [X] metres
     uint8_t m_actualTyreCompound; // F1 Modern - 16 = C5, 17 = C4, 18 = C3, 19 = C2, 20 = C1
     // 7 = inter, 8 = wet
     // F1 Classic - 9 = dry, 10 = wet

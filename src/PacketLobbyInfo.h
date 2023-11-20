@@ -9,13 +9,14 @@
 
 struct LobbyInfoData
 {
-    uint8_t m_aiControlled;
-    uint8_t m_teamId;
-    uint8_t m_nationality;
-    uint8_t m_platform;
-    char m_name[48];
-    uint8_t m_carNumber;
-    uint8_t m_readyStatus;
+    uint8_t m_aiControlled; // Whether the vehicle is AI (1) or Human (0) controlled
+    uint8_t m_teamId; // Team id - see appendix (255 if no team currently selected)
+    uint8_t m_nationality; // Nationality of the driver
+    uint8_t m_platform; // 1 = Steam, 3 = PlayStation, 4 = Xbox, 6 = Origin, 255 = unknown
+    char m_name[48]; // Name of participant in UTF-8 format – null terminated
+    // Will be truncated with ... (U+2026) if too long
+    uint8_t m_carNumber; // Car number of the player
+    uint8_t m_readyStatus; // 0 = not ready, 1 = ready, 2 = spectating
 };
 
 

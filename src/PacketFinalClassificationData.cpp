@@ -3,6 +3,8 @@
 #include <inttypes.h>
 #include <string.h>
 
+const int FINALCLASSIFICATION_BUFFER_SIZE = 1020;
+
 PacketFinalClassificationData::PacketFinalClassificationData()
 : PHeader()
 {}
@@ -12,7 +14,7 @@ PacketFinalClassificationData::~PacketFinalClassificationData()
 
 void PacketFinalClassificationData::push(char *receiveBuffer)
 {
-    memmove(PHeader::pointerToFirstElement(), receiveBuffer, 1020);
+    memmove(PHeader::pointerToFirstElement(), receiveBuffer, FINALCLASSIFICATION_BUFFER_SIZE);
 }
 
 uint8_t PacketFinalClassificationData::m_numCars(void)

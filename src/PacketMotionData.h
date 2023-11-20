@@ -33,13 +33,11 @@ class PacketMotionData : public PHeader
 public:
     PacketMotionData();
     virtual ~PacketMotionData();
-    // Extra player car ONLY data
     CarMotionData m_carMotionData(int index);
     void push(char *receiveBuffer);
 
 private:
     CarMotionData m_carMotionData_[22]; //22 elements
-    // Extra player car ONLY data
 };
 #pragma pack(pop)
 

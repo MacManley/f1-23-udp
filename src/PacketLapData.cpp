@@ -2,6 +2,8 @@
 #include "PacketLapData.h"
 #include <string.h>
 
+const int LAPDATA_BUFFER_SIZE = 1131;
+
 PacketLapData::PacketLapData()
 : PHeader()
 {}
@@ -11,7 +13,7 @@ PacketLapData::~PacketLapData()
 
 void PacketLapData::push(char *receiveBuffer)
 {
-    memmove(PHeader::pointerToFirstElement(), receiveBuffer, 1131);
+    memmove(PHeader::pointerToFirstElement(), receiveBuffer, LAPDATA_BUFFER_SIZE);
 }
 
 uint8_t PacketLapData::m_timeTrialPBCarIdx(void)

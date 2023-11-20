@@ -82,8 +82,8 @@ union EventDataDetails
 
     struct
     {
-        uint8_t overtakingVehicleIdx;
-        uint8_t beingOvertakenVehicleIdx;
+        uint8_t overtakingVehicleIdx; // Vehicle index of the vehicle overtaking
+        uint8_t beingOvertakenVehicleIdx; // Vehicle index of the vehicle being overtaken
     } Overtake;
     
 };

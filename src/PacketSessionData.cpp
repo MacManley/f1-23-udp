@@ -3,6 +3,8 @@
 #include <inttypes.h>
 #include <string.h>
 
+const int SESSION_BUFFER_SIZE = 644;
+
 PacketSessionData::PacketSessionData()
 : PHeader()
 {}
@@ -12,7 +14,7 @@ PacketSessionData::~PacketSessionData(void)
 
 void PacketSessionData::push(char *receiveBuffer)
 {
-    memmove(PHeader::pointerToFirstElement(), receiveBuffer, 644);
+    memmove(PHeader::pointerToFirstElement(), receiveBuffer, SESSION_BUFFER_SIZE);
 }
 
 uint8_t PacketSessionData::m_DRSAssist(void)

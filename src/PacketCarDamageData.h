@@ -19,7 +19,7 @@ struct CarDamageData
     uint8_t m_diffuserDamage; // Diffuser damage (percentage)
     uint8_t m_sidepodDamage; // Sidepod damage (percentage)
     uint8_t m_drsFault; // Indicator for DRS fault, 0 = OK, 1 = fault
-    uint8_t m_ersfault;
+    uint8_t m_ersfault; // Indicator for ERS fault, 0 = OK, 1 = fault
     uint8_t m_gearBoxDamage; // Gear box damage (percentage)
     uint8_t m_engineDamage; // Engine damage (percentage)
     uint8_t m_engineMGUHWear; // Engine wear MGU-H (percentage)

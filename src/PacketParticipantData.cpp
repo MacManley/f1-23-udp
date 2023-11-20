@@ -3,6 +3,8 @@
 #include <inttypes.h>
 #include <string.h>
 
+const int PARTICIPANT_BUFFER_SIZE = 1306;
+
 PacketParticipantData::PacketParticipantData()
 : PHeader()
 {}
@@ -12,7 +14,7 @@ PacketParticipantData::~PacketParticipantData()
 
 void PacketParticipantData::push(char *receiveBuffer)
 {
-    memmove(PHeader::pointerToFirstElement(), receiveBuffer, 1306);
+    memmove(PHeader::pointerToFirstElement(), receiveBuffer, PARTICIPANT_BUFFER_SIZE);
 }
 
 uint8_t PacketParticipantData::m_numActiveCars(void)

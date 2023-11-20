@@ -133,17 +133,18 @@ private:
     uint8_t m_DRSAssist_; // 0 = off, 1 = on
     uint8_t m_dynamicRacingLine_; // 0 = off, 1 = corners only, 2 = full
     uint8_t m_dynamicRacingLineType_; // 0 = 2D, 1 = 3D
-    uint8_t m_gameMode_;                  // Game mode id - see appendix
-    uint8_t m_ruleSet_;                   // Ruleset - see appendix
-    uint32_t m_timeOfDay_;                 // Local time of day - minutes since midnight
-    uint8_t m_sessionLength_; 
-    uint8_t m_speedUnitsLeadPlayer_;
-    uint8_t m_temperatureUnitsLeadPlayer_;
-    uint8_t m_speedUnitsSecondaryPlayer_;
-    uint8_t m_temperatureUnitsSecondaryPlayer_;
-    uint8_t m_numSafetyCarPeriods_;
-    uint8_t m_numVirtualSafetyCarPeriods_;
-    uint8_t m_numRedFlagPeriods_;
+    uint8_t m_gameMode_;        // Game mode id - see appendix
+    uint8_t m_ruleSet_;         // Ruleset - see appendix
+    uint32_t m_timeOfDay_;      // Local time of day - minutes since midnight
+    uint8_t m_sessionLength_; // 0 = None, 2 = Very Short, 3 = Short, 4 = Medium
+    // 5 = Medium Long, 6 = Long, 7 = Full
+    uint8_t m_speedUnitsLeadPlayer_; // 0 = MPH, 1 = KPH
+    uint8_t m_temperatureUnitsLeadPlayer_; // 0 = Celsius, 1 = Fahrenheit
+    uint8_t m_speedUnitsSecondaryPlayer_; // 0 = MPH, 1 = KPH
+    uint8_t m_temperatureUnitsSecondaryPlayer_; // 0 = Celsius, 1 = Fahrenheit
+    uint8_t m_numSafetyCarPeriods_; // Number of safety cars called during session
+    uint8_t m_numVirtualSafetyCarPeriods_; // Number of virtual safety cars called
+    uint8_t m_numRedFlagPeriods_; // Number of red flags called during session
 };
 #pragma pack(pop)
 

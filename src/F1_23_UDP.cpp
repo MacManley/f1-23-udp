@@ -30,7 +30,6 @@ F1_23_Parser::F1_23_Parser()
     packetFinalClassificationData_ = new PacketFinalClassificationData();
     packetLobbyData_ = new PacketLobbyInfo();
     packetCarDamageData_ = new PacketCarDamageData();
-    packetSessionData_ = new PacketSessionData();
     packetSessionHistoryData_ = new PacketSessionHistoryData();
     packetTyreSetData_ = new PacketTyreSetData();
     packetMotionEXData_ = new PacketMotionEXData();
@@ -49,46 +48,45 @@ F1_23_Parser::~F1_23_Parser()
     delete packetFinalClassificationData_;
     delete packetLobbyData_;
     delete packetCarDamageData_;
-    delete packetSessionData_;
     delete packetSessionHistoryData_;
     delete packetTyreSetData_;
     delete packetMotionEXData_;
 
 }
 
-void F1_23_Parser::push(char * recieveBuffer)
+void F1_23_Parser::push(char * rcvBuffer)
 {
     PHeader* P = new PHeader();
-    P->push(recieveBuffer);
+    P->push(rcvBuffer);
     switch (P->m_packetId())
     {
-        case 0: packetMotionData_->push(recieveBuffer);
+        case 0: packetMotionData_->push(rcvBuffer);
             break;
-        case 1: packetSessionData_->push(recieveBuffer);
+        case 1: packetSessionData_->push(rcvBuffer);
             break;
-        case 2: packetLapData_->push(recieveBuffer);
+        case 2: packetLapData_->push(rcvBuffer);
             break;
-        case 3: packetEventData_->push(recieveBuffer);
+        case 3: packetEventData_->push(rcvBuffer);
             break;
-        case 4: packetParticipantData_->push(recieveBuffer);
+        case 4: packetParticipantData_->push(rcvBuffer);
             break;
-        case 5: packetCarSetupData_->push(recieveBuffer);
+        case 5: packetCarSetupData_->push(rcvBuffer);
             break;
-        case 6: packetCarTelemetryData_->push(recieveBuffer);
+        case 6: packetCarTelemetryData_->push(rcvBuffer);
             break;
-        case 7: packetCarStatusData_->push(recieveBuffer);
+        case 7: packetCarStatusData_->push(rcvBuffer);
             break;
-        case 8: packetFinalClassificationData_->push(recieveBuffer);
+        case 8: packetFinalClassificationData_->push(rcvBuffer);
             break;
-        case 9: packetLobbyData_->push(recieveBuffer);
+        case 9: packetLobbyData_->push(rcvBuffer);
             break;
-        case 10: packetCarDamageData_->push(recieveBuffer);
+        case 10: packetCarDamageData_->push(rcvBuffer);
             break;
-        case 11: packetSessionHistoryData_->push(recieveBuffer);
+        case 11: packetSessionHistoryData_->push(rcvBuffer);
             break;
-        case 12: packetTyreSetData_->push(recieveBuffer);
+        case 12: packetTyreSetData_->push(rcvBuffer);
             break;
-        case 13: packetMotionEXData_->push(recieveBuffer);
+        case 13: packetMotionEXData_->push(rcvBuffer);
             break;
         default:;
     }

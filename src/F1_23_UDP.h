@@ -23,7 +23,7 @@ class F1_23_Parser
 public:
     F1_23_Parser();
     virtual ~F1_23_Parser();
-    void push(char * recieveBuffer);
+    void push(char * receiveBuffer);
     PacketMotionData* packetMotionData(void);
     PacketSessionData* packetSessionData(void);
     PacketLapData* packetLapData(void);

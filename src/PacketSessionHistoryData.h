@@ -11,11 +11,11 @@ struct LapHistoryData
 {
     uint32_t m_lapTimeInMS; // Lap time in milliseconds
     uint16_t m_sector1TimeInMS; // Sector 1 time in milliseconds
-    uint8_t m_sector1TimeMinutes;
+    uint8_t m_sector1TimeMinutes; // Sector 1 time in minutes
     uint16_t m_sector2TimeInMS; // Sector 2 time in milliseconds
-    uint8_t m_sector2TimeMinutes;
+    uint8_t m_sector2TimeMinutes; // Sector 2 time in minutes
     uint16_t m_sector3TimeInMS; // Sector 3 time in milliseconds
-    uint8_t m_sector3TimeMinutes;
+    uint8_t m_sector3TimeMinutes; // Sector 3 time in minutes
     uint8_t m_lapValidBitFlags; // 0x01 bit set-lap valid,      0x02 bit set-sector 1 valid
     // 0x04 bit set-sector 2 valid, 0x08 bit set-sector 3 valid
 };
@@ -54,7 +54,7 @@ private:
     uint8_t m_bestSector3LapNum_; // Lap the best Sector 3 time was achieved on
 
     LapHistoryData m_lapHistoryData_[100]; // 100 laps of data max
-    TyreStintHistoryData m_tyreStintsHistoryData_[8];
+    TyreStintHistoryData m_tyreStintsHistoryData_[8]; // Stint history
 
 };
 #pragma pack(pop)

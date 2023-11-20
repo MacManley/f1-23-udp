@@ -11,11 +11,11 @@ struct LapData
     uint32_t m_lastLapTimeInMS; // Last lap time in milliseconds
     uint32_t m_currentLapTimeInMS; // Current time around the lap in milliseconds
     uint16_t m_sector1TimeInMS; // Sector 1 time in milliseconds
-    uint8_t m_sector1TimeMinutes;
+    uint8_t m_sector1TimeMinutes; // Sector 1 time in minutes
     uint16_t m_sector2TimeInMS; // Sector 2 time in milliseconds
-    uint8_t m_sector2TimeMinutes;
-    uint16_t m_deltaToCarInFrontInMS;
-    uint16_t  m_deltaToRaceLeaderInMS;
+    uint8_t m_sector2TimeMinutes; // Sector 2 time in minutes
+    uint16_t m_deltaToCarInFrontInMS; // Delta to car ahead in milliseconds
+    uint16_t  m_deltaToRaceLeaderInMS; // Delta to car ahead in minutes
     float m_lapDistance; // Distance vehicle is around current lap in metres – could
     // be negative if line hasn’t been crossed yet
     float m_totalDistance; // Total distance travelled in session in metres – could
@@ -57,8 +57,8 @@ public:
 
 private:
     LapData m_lapData_[22]; // Lap data for all cars on track
-    uint8_t m_timeTrialPBCarIdx_;
-    uint8_t m_timeTrialRivalCarIdx_;
+    uint8_t m_timeTrialPBCarIdx_; // Index of Personal Best car in time trial (255 if invalid)
+    uint8_t m_timeTrialRivalCarIdx_; // Index of Rival car in time trial (255 if invalid)
 };
 #pragma pack(pop)
 

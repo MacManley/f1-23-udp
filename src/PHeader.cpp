@@ -4,6 +4,8 @@
 #include <cstdio>
 #include <string.h>
 
+const int HEADER_BUFFER_SIZE = 29;
+
 using namespace std;
 
 PHeader::PHeader()
@@ -17,7 +19,7 @@ PHeader::~PHeader()
 
 void PHeader::push(char *receiveBuffer)
 {
-    memmove(&m_header, receiveBuffer, 29);
+    memmove(&m_header, receiveBuffer, HEADER_BUFFER_SIZE);
 
 }
 

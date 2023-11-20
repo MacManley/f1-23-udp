@@ -2,6 +2,8 @@
 #include "PacketSessionHistoryData.h"
 #include <string.h>
 
+const int SESSIONHISTORY_BUFFER_SIZE = 1460;
+
 PacketSessionHistoryData::PacketSessionHistoryData()
 : PHeader()
 {}
@@ -11,7 +13,7 @@ PacketSessionHistoryData::~PacketSessionHistoryData()
 
 void PacketSessionHistoryData::push(char *receiveBuffer)
 {
-    memmove(PHeader::pointerToFirstElement(), receiveBuffer, 1460);
+    memmove(PHeader::pointerToFirstElement(), receiveBuffer, SESSIONHISTORY_BUFFER_SIZE);
 }
 
 uint8_t PacketSessionHistoryData::m_carIdx(void)

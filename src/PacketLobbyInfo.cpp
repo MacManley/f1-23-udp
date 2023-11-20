@@ -3,6 +3,8 @@
 #include <inttypes.h>
 #include <string.h>
 
+const int LOBBYINFO_BUFFER_SIZE = 1218;
+
 PacketLobbyInfo::PacketLobbyInfo()
 : PHeader()
 {}
@@ -12,7 +14,7 @@ PacketLobbyInfo::~PacketLobbyInfo()
 
 void PacketLobbyInfo::push(char *receiveBuffer)
 {
-    memmove(PHeader::pointerToFirstElement(), receiveBuffer, 1218);
+    memmove(PHeader::pointerToFirstElement(), receiveBuffer, LOBBYINFO_BUFFER_SIZE);
 }
 
 uint8_t PacketLobbyInfo::m_numofCars(void)

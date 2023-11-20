@@ -8,15 +8,15 @@
 #pragma pack(push, 1)
 
 struct TyreSetData {
-    uint8_t m_actualTyreCompound;
-    uint8_t m_VisualTyreCompound;
-    uint8_t m_wear;
-    uint8_t m_available;
-    uint8_t m_recommendedSession;
-    uint8_t m_lifeSpan;
-    uint8_t m_useableLife;
-    int16_t m_lapDeltaTime;
-    uint8_t m_fitted;
+    uint8_t m_actualTyreCompound; // Actual tyre compound used
+    uint8_t m_VisualTyreCompound; // Visual tyre compound used
+    uint8_t m_wear; // Tyre wear (percentage)
+    uint8_t m_available; // Whether this set is currently available
+    uint8_t m_recommendedSession; // Recommended session for tyre set
+    uint8_t m_lifeSpan; // Laps left in this tyre set
+    uint8_t m_useableLife; // Max number of laps recommended for this compound
+    int16_t m_lapDeltaTime; // Lap delta time in milliseconds compared to fitted set
+    uint8_t m_fitted; // Whether the set is fitted or not
 };
 
 class PacketTyreSetData : public PHeader
@@ -31,8 +31,8 @@ public:
 
 private:
     uint8_t m_carIdx_; // Index of the car this lap data relates to
-    TyreSetData m_tyresetData_[20];
-    uint8_t m_fittedIdx_;
+    TyreSetData m_tyresetData_[20]; // 13 (dry) + 7 (wet)
+    uint8_t m_fittedIdx_; // Index into array of fitted tyre
 
 };
 #pragma pack(pop)

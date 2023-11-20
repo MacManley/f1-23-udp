@@ -2,6 +2,8 @@
 #include "PacketCarTelemetryData.h"
 #include <string.h>
 
+const int CARTELEMETRY_BUFFER_SIZE = 1352;
+
 PacketCarTelemetryData::PacketCarTelemetryData()
 : PHeader()
 {}
@@ -11,7 +13,7 @@ PacketCarTelemetryData::~PacketCarTelemetryData()
 
 void PacketCarTelemetryData::push(char *receiveBuffer)
 {
-    memmove(PHeader::pointerToFirstElement(), receiveBuffer, 1352);
+    memmove(PHeader::pointerToFirstElement(), receiveBuffer, CARTELEMETRY_BUFFER_SIZE);
 }
 
 

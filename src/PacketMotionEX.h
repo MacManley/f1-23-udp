@@ -1,4 +1,4 @@
-// File: PacketMotionEXData.h
+// File: PacketMotionEX.h
 #ifndef PACKETMOTIONEX_H
 #define PACKETMOTIONEX_H
 
@@ -11,21 +11,21 @@ struct MotionEXData {
     float m_suspensionVelocity[4]; // RL, RR, FL, FR
     float m_suspensionAcceleration[4]; // RL, RR, FL, FR
     float m_wheelSpeed[4]; // Speed of each wheel
-    float m_wheelSlipRation[4]; // Slip ratio for each wheel
-    float m_wheelSlipAngle[4];
-    float m_wheelLatForce[4];
-    float m_wheelLongForce[4];
-    float m_heightOfCOGAboveGround;
-    float m_localVelocityX; // Velocity in local space
-    float m_localVelocityY; // Velocity in local space
-    float m_localVelocityZ; // Velocity in local space
-    float m_angularVelocityX; // Angular velocity x-component
-    float m_angularVelocityY; // Angular velocity y-component
-    float m_angularVelocityZ; // Angular velocity z-component
-    float m_angularAccelerationX; // Angular velocity x-component
-    float m_angularAccelerationY; // Angular velocity y-component
-    float m_angularAccelerationZ; // Angular velocity z-component
-    float m_frontWheelsAngle; // Current front wheels angle in radians
+    float m_wheelSlipRatio[4]; // Slip ratio for each wheel
+    float m_wheelSlipAngle[4]; // Slip angles for each wheel
+    float m_wheelLatForce[4]; // Lateral forces for each wheel
+    float m_wheelLongForce[4]; // Longitudal forces for each wheel
+    float m_heightOfCOGAboveGround; // Height of Centre of Gravity above the ground
+    float m_localVelocityX; // Velocity in local space - m/s
+    float m_localVelocityY; // Velocity in local space - m/s
+    float m_localVelocityZ; // Velocity in local space - m/s
+    float m_angularVelocityX; // Angular velocity x-component - rad/s
+    float m_angularVelocityY; // Angular velocity y-component - rad/s
+    float m_angularVelocityZ; // Angular velocity z-component - rad/s
+    float m_angularAccelerationX; // Angular velocity x-component - rad/s
+    float m_angularAccelerationY; // Angular velocity y-component - rad/s
+    float m_angularAccelerationZ; // Angular velocity z-component - rad/s
+    float m_frontWheelsAngle; // Current front wheels angle - rad/s
     float m_wheelVertForce[4]; // Vertical forces for each wheel
 };
 
