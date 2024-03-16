@@ -1,7 +1,7 @@
 // File: PacketLobbyInfo.cpp
 #include "PacketLobbyInfo.h"
 #include <inttypes.h>
-#include <string.h>
+#include <cstring>
 
 const int LOBBYINFO_BUFFER_SIZE = 1218;
 
@@ -14,7 +14,7 @@ PacketLobbyInfo::~PacketLobbyInfo()
 
 void PacketLobbyInfo::push(char *receiveBuffer)
 {
-    memmove(PHeader::pointerToFirstElement(), receiveBuffer, LOBBYINFO_BUFFER_SIZE);
+    std::memcpy(PHeader::pointerToFirstElement(), receiveBuffer, LOBBYINFO_BUFFER_SIZE);
 }
 
 uint8_t PacketLobbyInfo::m_numofCars(void)
@@ -26,5 +26,5 @@ LobbyInfoData PacketLobbyInfo::m_lobbyPlayers(int index)
 {
     if (index >= 0 && index < 22)
         return m_lobbyPlayers_[index];
-    else return {0};
+    else return LobbyInfoData{};
 }

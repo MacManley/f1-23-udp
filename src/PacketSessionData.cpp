@@ -1,7 +1,7 @@
 // File: PacketSessionData.cpp
 #include "PacketSessionData.h"
 #include <inttypes.h>
-#include <string.h>
+#include <cstring>
 
 const int SESSION_BUFFER_SIZE = 644;
 
@@ -14,7 +14,7 @@ PacketSessionData::~PacketSessionData(void)
 
 void PacketSessionData::push(char *receiveBuffer)
 {
-    memmove(PHeader::pointerToFirstElement(), receiveBuffer, SESSION_BUFFER_SIZE);
+    std::memcpy(PHeader::pointerToFirstElement(), receiveBuffer, SESSION_BUFFER_SIZE);
 }
 
 uint8_t PacketSessionData::m_DRSAssist(void)

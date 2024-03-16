@@ -1,7 +1,7 @@
 // File: PacketParticipantData.cpp
 #include "PacketParticipantData.h"
 #include <inttypes.h>
-#include <string.h>
+#include <cstring>
 
 const int PARTICIPANT_BUFFER_SIZE = 1306;
 
@@ -14,7 +14,7 @@ PacketParticipantData::~PacketParticipantData()
 
 void PacketParticipantData::push(char *receiveBuffer)
 {
-    memmove(PHeader::pointerToFirstElement(), receiveBuffer, PARTICIPANT_BUFFER_SIZE);
+    std::memcpy(PHeader::pointerToFirstElement(), receiveBuffer, PARTICIPANT_BUFFER_SIZE);
 }
 
 uint8_t PacketParticipantData::m_numActiveCars(void)
@@ -26,5 +26,5 @@ ParticipantData PacketParticipantData::m_participants(int index)
 {
     if (index >= 0 && index < 22)
         return m_participants_[index];
-    else return{0};
+    else return ParticipantData{};
 }

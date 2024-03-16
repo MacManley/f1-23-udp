@@ -1,7 +1,7 @@
 // File: PacketFinalClassificationData.cpp
 #include "PacketFinalClassificationData.h"
 #include <inttypes.h>
-#include <string.h>
+#include <cstring>
 
 const int FINALCLASSIFICATION_BUFFER_SIZE = 1020;
 
@@ -14,7 +14,7 @@ PacketFinalClassificationData::~PacketFinalClassificationData()
 
 void PacketFinalClassificationData::push(char *receiveBuffer)
 {
-    memmove(PHeader::pointerToFirstElement(), receiveBuffer, FINALCLASSIFICATION_BUFFER_SIZE);
+    std::memcpy(PHeader::pointerToFirstElement(), receiveBuffer, FINALCLASSIFICATION_BUFFER_SIZE);
 }
 
 uint8_t PacketFinalClassificationData::m_numCars(void)
@@ -26,5 +26,5 @@ FinalClassificationData PacketFinalClassificationData::m_classificationData(int 
 {
     if (index >= 0 && index < 22)
         return m_classificationData_[index];
-    else return {0};
+    else return FinalClassificationData{};
 }

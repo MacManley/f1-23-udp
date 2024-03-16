@@ -3,7 +3,7 @@
 #define PACKETEVENTDATA_H
 
 #include "PHeader.h"
-#include <string>
+#include <cstring>
 // The event details packet is different for each type of event.
 // Make sure only the correct type is interpreted.
 #pragma pack(push, 1)
@@ -93,7 +93,7 @@ class PacketEventData : public PHeader
 public:
     PacketEventData();
     virtual ~PacketEventData();
-    uint8_t* m_eventStringCode(void);
+    uint8_t* m_eventStringCode(int index);
     EventDataDetails m_eventDetails(void);
     void push(char *receiveBuffer);
 

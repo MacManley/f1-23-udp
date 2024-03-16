@@ -41,13 +41,13 @@ void loop()
        parser->push(packetBuffer);
 
       unsigned int playerCar = parser->packetCarTelemetryData()->m_playerCarIndex(); // Get the index of the players car in the array.
-      bool drs = parser->packetCarTelemetryData()->m_carTelemetryData(playerCar).m_drs; // DRS assigned as a bool, 0 - OFF, 1 - ON
+      uint8_t drs = parser->packetCarTelemetryData()->m_carTelemetryData(playerCar).m_drs; //drs assigned as a   0 - OFF, 1 - ON
       if (drs) {
-        digitalWrite(LED_BUILTIN, HIGH);
+        digitalWrite(LED_BUILTIN, LOW); 
         Serial.println("DRS Enabled");
       } else {
-        digitalWrite(LED_BUILTIN, LOW);
-      }
+        digitalWrite(LED_BUILTIN, HIGH);
+      } // Some boards turn on LED when pulled LOW, others HIGH, invert if there are issues.
       delay(250);
   }
 }

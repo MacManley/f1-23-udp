@@ -1,6 +1,7 @@
 // File: PacketSessionHistoryData.cpp
 #include "PacketSessionHistoryData.h"
-#include <string.h>
+#include <inttypes.h>
+#include <cstring>
 
 const int SESSIONHISTORY_BUFFER_SIZE = 1460;
 
@@ -13,7 +14,7 @@ PacketSessionHistoryData::~PacketSessionHistoryData()
 
 void PacketSessionHistoryData::push(char *receiveBuffer)
 {
-    memmove(PHeader::pointerToFirstElement(), receiveBuffer, SESSIONHISTORY_BUFFER_SIZE);
+    std::memcpy(PHeader::pointerToFirstElement(), receiveBuffer, SESSIONHISTORY_BUFFER_SIZE);
 }
 
 uint8_t PacketSessionHistoryData::m_carIdx(void)
@@ -55,12 +56,12 @@ LapHistoryData PacketSessionHistoryData::m_lapHistoryData(char index)
 {
     if (index >= 0 && index < 100)
         return m_lapHistoryData_[index];
-    else return {0};
+    else return LapHistoryData{};
 }
 
 TyreStintHistoryData PacketSessionHistoryData::m_tyreStintsHistoryData(char index)
 {
     if (index >= 0 && index < 8)
         return m_tyreStintsHistoryData_[index];
-    else return {0};
+    else return TyreStintHistoryData{};
 }

@@ -2,7 +2,7 @@
 #include "PHeader.h"
 #include <inttypes.h>
 #include <cstdio>
-#include <string.h>
+#include <cstring>
 
 const int HEADER_BUFFER_SIZE = 29;
 
@@ -19,7 +19,7 @@ PHeader::~PHeader()
 
 void PHeader::push(char *receiveBuffer)
 {
-    memmove(&m_header, receiveBuffer, HEADER_BUFFER_SIZE);
+    std::memcpy(&m_header, receiveBuffer, HEADER_BUFFER_SIZE);
 
 }
 

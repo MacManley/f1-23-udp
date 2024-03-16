@@ -1,7 +1,7 @@
 // File: PacketTyreSetData.cpp
 #include "PacketTyreSetData.h"
 #include <inttypes.h>
-#include <string.h>
+#include <cstring>
 
 const int TYRESET_BUFFER_SIZE = 231;
 
@@ -16,7 +16,7 @@ PacketTyreSetData::~PacketTyreSetData()
 
 void PacketTyreSetData::push(char *receiveBuffer)
 {
-    memmove(PHeader::pointerToFirstElement(), receiveBuffer, TYRESET_BUFFER_SIZE);
+    std::memcpy(PHeader::pointerToFirstElement(), receiveBuffer, TYRESET_BUFFER_SIZE);
 }
 
 uint8_t PacketTyreSetData::m_carIdx(void)
@@ -28,7 +28,7 @@ TyreSetData PacketTyreSetData::m_tyresetData(int index)
 {
     if (index >= 0 && index < 20)
         return m_tyresetData_[index];
-    else return{0};
+    else return TyreSetData{};
 }
 
 uint8_t PacketTyreSetData::m_fittedIdx(void)
