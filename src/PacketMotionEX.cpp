@@ -13,7 +13,7 @@ PacketMotionEXData::~PacketMotionEXData()
 
 void PacketMotionEXData::push(char *receiveBuffer)
 {
-    std::memcpy(PHeader::pointerToFirstElement(), receiveBuffer, MOTIONEX_BUFFER_SIZE);
+    std::memcpy(PHeader::firstElementPointer(), receiveBuffer, MOTIONEX_BUFFER_SIZE);
 }
 
 MotionEXData PacketMotionEXData::m_carMotionEXData()

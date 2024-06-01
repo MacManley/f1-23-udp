@@ -23,7 +23,8 @@ class F1_23_Parser
 public:
     F1_23_Parser();
     virtual ~F1_23_Parser();
-    void push(char * receiveBuffer);
+    void read(void);
+    void begin(void);
     PacketMotionData* packetMotionData(void);
     PacketSessionData* packetSessionData(void);
     PacketLapData* packetLapData(void);
@@ -40,6 +41,7 @@ public:
     PacketMotionEXData* packetMotionEXData(void);
 
 private:
+    void push(char * receiveBuffer);
     PacketMotionData* packetMotionData_;
     PacketSessionData* packetSessionData_;
     PacketLapData* packetLapData_;

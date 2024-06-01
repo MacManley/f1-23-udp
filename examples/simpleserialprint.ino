@@ -12,9 +12,6 @@ void startWiFi();
  
 //The IP address that this ESP32 / ESP8266 has requested to be assigned to.
 IPAddress ip();
-WiFiUDP Udp;
-
-unsigned int localPort = 20777; // Port that is used in game, default is 20777
 
 F1_23_Parser* parser;
 
@@ -23,29 +20,16 @@ void setup()
   parser = new F1_23_Parser();
   Serial.begin(115200);
   startWiFi();
-  Udp.begin(localPort);
+  parser->begin();
 }
 
 void loop()
 {
-  int packetSize = Udp.parsePacket(); 
-  
-    if(packetSize) 
-    {
-       char packetBuffer[packetSize];
-       while(Udp.available())
-       {
-        Udp.read(packetBuffer, packetSize);
-       }
-       parser->push(packetBuffer);
-       Serial.print("Speed: ");
-
-       unsigned int playerCar = parser->packetCarTelemetryData()->m_playerCarIndex(); //Get the index of the players car in the array.
-       unsigned int speed = parser->packetCarTelemetryData()->m_carTelemetryData(playerCar).m_speed; //Speed of the car, inputting "playerCar" for the speed of the players car.
-
-       Serial.println(speed);
+    parser->read();
+    unsigned int playerCar = parser->packetCarTelemetryData()->m_playerCarIndex(); //Get the index of the players car in the array.
+    unsigned int speed = parser->packetCarTelemetryData()->m_carTelemetryData(playerCar).m_speed; //Speed of the car, inputting "playerCar" for the speed of the players car.
+    Serial.println(speed);
   }
-}
 void startWiFi()
 {
  

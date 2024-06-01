@@ -14,7 +14,7 @@ PacketLobbyInfo::~PacketLobbyInfo()
 
 void PacketLobbyInfo::push(char *receiveBuffer)
 {
-    std::memcpy(PHeader::pointerToFirstElement(), receiveBuffer, LOBBYINFO_BUFFER_SIZE);
+    std::memcpy(PHeader::firstElementPointer(), receiveBuffer, LOBBYINFO_BUFFER_SIZE);
 }
 
 uint8_t PacketLobbyInfo::m_numofCars(void)

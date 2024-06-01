@@ -13,7 +13,7 @@ PacketCarDamageData::~PacketCarDamageData()
 
 void PacketCarDamageData::push(char *receiveBuffer)
 {
-    std::memcpy(PHeader::pointerToFirstElement(), receiveBuffer, CARDAMAGE_BUFFER_SIZE);
+    std::memcpy(PHeader::firstElementPointer(), receiveBuffer, CARDAMAGE_BUFFER_SIZE);
 }
 
 CarDamageData PacketCarDamageData::m_carDamageData(int index)

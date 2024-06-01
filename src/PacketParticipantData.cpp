@@ -14,7 +14,7 @@ PacketParticipantData::~PacketParticipantData()
 
 void PacketParticipantData::push(char *receiveBuffer)
 {
-    std::memcpy(PHeader::pointerToFirstElement(), receiveBuffer, PARTICIPANT_BUFFER_SIZE);
+    std::memcpy(PHeader::firstElementPointer(), receiveBuffer, PARTICIPANT_BUFFER_SIZE);
 }
 
 uint8_t PacketParticipantData::m_numActiveCars(void)

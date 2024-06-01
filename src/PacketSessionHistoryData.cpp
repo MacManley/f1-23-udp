@@ -14,7 +14,7 @@ PacketSessionHistoryData::~PacketSessionHistoryData()
 
 void PacketSessionHistoryData::push(char *receiveBuffer)
 {
-    std::memcpy(PHeader::pointerToFirstElement(), receiveBuffer, SESSIONHISTORY_BUFFER_SIZE);
+    std::memcpy(PHeader::firstElementPointer(), receiveBuffer, SESSIONHISTORY_BUFFER_SIZE);
 }
 
 uint8_t PacketSessionHistoryData::m_carIdx(void)

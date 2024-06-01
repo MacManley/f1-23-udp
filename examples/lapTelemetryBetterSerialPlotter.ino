@@ -15,9 +15,6 @@ void startWiFi();
  
 //The IP address that this ESP32 / ESP8266 has requested to be assigned to.
 IPAddress ip();
-WiFiUDP Udp;
-
-unsigned int localPort = 20777; // Port that is used in game, default is 20777
 
 F1_23_Parser* parser;
 
@@ -26,35 +23,24 @@ void setup()
   parser = new F1_23_Parser();
   Serial.begin(115200);
   startWiFi();
-  Udp.begin(localPort);
+  parser->begin();
 }
 
 void loop()
 {
-  int packetSize = Udp.parsePacket(); 
-  
-    if(packetSize) 
-    {
-      float t = millis()/1000;
-       char packetBuffer[packetSize];
-       while(Udp.available())
-       {
-        Udp.read(packetBuffer, packetSize);
-       }
-       parser->push(packetBuffer);
-
-      unsigned int playerCar = parser->packetCarTelemetryData()->m_playerCarIndex(); // Get the index of the players car in the array.
-      float throttle = parser->packetCarTelemetryData()->m_carTelemetryData(playerCar).m_throttle * 100; // Throttle Input
-      float brake = parser->packetCarTelemetryData()->m_carTelemetryData(playerCar).m_brake * 100; // Brake Input
-      float steering = parser->packetCarTelemetryData()->m_carTelemetryData(playerCar).m_steer * 100; // Steering Input
-      Serial.print(t);
-      Serial.print("\t");
-      Serial.print(throttle);
-      Serial.print("\t");
-      Serial.print(brake);
-      Serial.print("\t");
-      Serial.println(steering);
-  }
+  float t = millis()/1000;
+  parser->read();
+  unsigned int playerCar = parser->packetCarTelemetryData()->m_playerCarIndex(); // Get the index of the players car in the array.
+  float throttle = parser->packetCarTelemetryData()->m_carTelemetryData(playerCar).m_throttle * 100; // Throttle Input
+  float brake = parser->packetCarTelemetryData()->m_carTelemetryData(playerCar).m_brake * 100; // Brake Input
+  float steering = parser->packetCarTelemetryData()->m_carTelemetryData(playerCar).m_steer * 100; // Steering Input
+  Serial.print(t);
+  Serial.print("\t");
+  Serial.print(throttle);
+  Serial.print("\t");
+  Serial.print(brake);
+  Serial.print("\t");
+  Serial.println(steering);
 }
 void startWiFi()
 {

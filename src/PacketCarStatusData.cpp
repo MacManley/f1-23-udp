@@ -7,7 +7,6 @@ const int CARSTATUS_BUFFER_SIZE = 1239;
 PacketCarStatusData::PacketCarStatusData()
 : PHeader()
 {
-
 }
 
 PacketCarStatusData::~PacketCarStatusData()
@@ -16,7 +15,7 @@ PacketCarStatusData::~PacketCarStatusData()
 
 void PacketCarStatusData::push(char *receiveBuffer)
 {
-    std::memcpy(PHeader::pointerToFirstElement(), receiveBuffer, CARSTATUS_BUFFER_SIZE);
+    std::memcpy(PHeader::firstElementPointer(), receiveBuffer, CARSTATUS_BUFFER_SIZE);
 }
 
 CarStatusData PacketCarStatusData::m_carStatusData(int index)

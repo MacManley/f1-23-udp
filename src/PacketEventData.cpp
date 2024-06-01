@@ -14,10 +14,10 @@ PacketEventData::~PacketEventData()
 
 void PacketEventData::push(char *receiveBuffer)
 {
-    std::memcpy(PHeader::pointerToFirstElement(), receiveBuffer, EVENT_BUFFER_SIZE);
+    std::memcpy(PHeader::firstElementPointer(), receiveBuffer, EVENT_BUFFER_SIZE);
 }
 
-uint8_t* PacketEventData::m_eventStringCode(int index)
+uint8_t PacketEventData::m_eventStringCode(int index)
 {
     if (index >= 0 && index < 4)
         return m_eventStringCode_[index];

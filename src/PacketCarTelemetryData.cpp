@@ -14,7 +14,7 @@ PacketCarTelemetryData::~PacketCarTelemetryData()
 
 void PacketCarTelemetryData::push(char *receiveBuffer)
 {
-    std::memcpy(PHeader::pointerToFirstElement(), receiveBuffer, CARTELEMETRY_BUFFER_SIZE);
+    std::memcpy(PHeader::firstElementPointer(), receiveBuffer, CARTELEMETRY_BUFFER_SIZE);
 }
 
 

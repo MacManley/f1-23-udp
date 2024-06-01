@@ -12,9 +12,6 @@ void startWiFi();
  
 //The IP address that this ESP32 / ESP8266 has requested to be assigned to.
 IPAddress ip();
-WiFiUDP Udp;
-
-unsigned int localPort = 20777; // Port that is used in game, default is 20777
 
 F1_23_Parser* parser;
 
@@ -23,25 +20,16 @@ void setup()
   parser = new F1_23_Parser();
   Serial.begin(115200);
   startWiFi();
-  Udp.begin(localPort);
+  parser->begin();
   pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, LOW);
 }
 
 void loop()
 {
-  int packetSize = Udp.parsePacket(); 
-  
-    if(packetSize) 
-    {
-       char packetBuffer[packetSize];
-       while(Udp.available())
-       {
-        Udp.read(packetBuffer, packetSize);
-       }
-       parser->push(packetBuffer);
-
+      parser->read();
       unsigned int playerCar = parser->packetCarTelemetryData()->m_playerCarIndex(); // Get the index of the players car in the array.
-      uint8_t drs = parser->packetCarTelemetryData()->m_carTelemetryData(playerCar).m_drs; //drs assigned as a   0 - OFF, 1 - ON
+      uint8_t drs = parser->packetCarTelemetryData()->m_carTelemetryData(playerCar).m_drs; // DRS assigned as a uint8_t, 0 - OFF, 1 - ON
       if (drs) {
         digitalWrite(LED_BUILTIN, LOW); 
         Serial.println("DRS Enabled");
@@ -49,7 +37,6 @@ void loop()
         digitalWrite(LED_BUILTIN, HIGH);
       } // Some boards turn on LED when pulled LOW, others HIGH, invert if there are issues.
       delay(250);
-  }
 }
 void startWiFi()
 {

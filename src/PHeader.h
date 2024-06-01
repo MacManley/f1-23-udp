@@ -46,7 +46,7 @@ public:
 
 protected:
     PacketHeader m_header;
-    uint16_t* pointerToFirstElement();
+    uint16_t* firstElementPointer();
 };
 
 #pragma pack(pop)

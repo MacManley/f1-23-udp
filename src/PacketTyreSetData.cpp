@@ -16,7 +16,7 @@ PacketTyreSetData::~PacketTyreSetData()
 
 void PacketTyreSetData::push(char *receiveBuffer)
 {
-    std::memcpy(PHeader::pointerToFirstElement(), receiveBuffer, TYRESET_BUFFER_SIZE);
+    std::memcpy(PHeader::firstElementPointer(), receiveBuffer, TYRESET_BUFFER_SIZE);
 }
 
 uint8_t PacketTyreSetData::m_carIdx(void)

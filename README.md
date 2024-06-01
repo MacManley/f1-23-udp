@@ -8,10 +8,15 @@ This program captures and parses packets that are sent by the F1 2023 game. This
 #include "F1_23_UDP.h"
 F1_23_Parser* parser;
 
+void setup()
+{
+    parser->begin();
+}
+
 void loop()
 {
     parser = new F1_23_Parser();
-    parser->push(*buffer)
+    parser->read()
 }
 
 ```

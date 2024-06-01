@@ -15,7 +15,7 @@ PacketCarSetupData::~PacketCarSetupData()
 
 void PacketCarSetupData::push(char *receiveBuffer)
 {
-    std::memcpy(PHeader::pointerToFirstElement(), receiveBuffer, CARSETUP_BUFFER_SIZE);
+    std::memcpy(PHeader::firstElementPointer(), receiveBuffer, CARSETUP_BUFFER_SIZE);
 }
 
 CarSetupData PacketCarSetupData::m_carSetups(int index)

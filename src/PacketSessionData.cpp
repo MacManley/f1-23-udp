@@ -14,7 +14,7 @@ PacketSessionData::~PacketSessionData(void)
 
 void PacketSessionData::push(char *receiveBuffer)
 {
-    std::memcpy(PHeader::pointerToFirstElement(), receiveBuffer, SESSION_BUFFER_SIZE);
+    std::memcpy(PHeader::firstElementPointer(), receiveBuffer, SESSION_BUFFER_SIZE);
 }
 
 uint8_t PacketSessionData::m_DRSAssist(void)

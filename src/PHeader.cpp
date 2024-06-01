@@ -83,7 +83,7 @@ uint8_t PHeader::m_secondaryPlayerCarIndex(void)
     return m_header.m_secondaryPlayerCarIndex;
 }
 
-uint16_t* PHeader::pointerToFirstElement(void)
+uint16_t* PHeader::firstElementPointer(void)
 {
     return &m_header.m_packetFormat;
 }

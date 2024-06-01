@@ -14,7 +14,7 @@ PacketFinalClassificationData::~PacketFinalClassificationData()
 
 void PacketFinalClassificationData::push(char *receiveBuffer)
 {
-    std::memcpy(PHeader::pointerToFirstElement(), receiveBuffer, FINALCLASSIFICATION_BUFFER_SIZE);
+    std::memcpy(PHeader::firstElementPointer(), receiveBuffer, FINALCLASSIFICATION_BUFFER_SIZE);
 }
 
 uint8_t PacketFinalClassificationData::m_numCars(void)

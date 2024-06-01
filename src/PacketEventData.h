@@ -93,7 +93,7 @@ class PacketEventData : public PHeader
 public:
     PacketEventData();
     virtual ~PacketEventData();
-    uint8_t* m_eventStringCode(int index);
+    uint8_t m_eventStringCode(int index);
     EventDataDetails m_eventDetails(void);
     void push(char *receiveBuffer);
 

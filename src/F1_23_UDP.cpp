@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 #include "F1_23_UDP.h"
+#include <WiFiUdp.h>
 #include "PacketMotionData.h"
 #include "PacketSessionData.h"
 #include "PacketLapData.h"
@@ -16,6 +17,10 @@
 #include "PacketSessionHistoryData.h"
 #include "PacketMotionEX.h"
 #include "PacketTyreSetData.h"
+
+constexpr unsigned int localPort = 20777;
+
+WiFiUDP Udp;
 
 F1_23_Parser::F1_23_Parser()
 {
@@ -52,6 +57,22 @@ F1_23_Parser::~F1_23_Parser()
     delete packetTyreSetData_;
     delete packetMotionEXData_;
 
+}
+
+void F1_23_Parser::begin(void) {
+    Udp.begin(localPort);
+}
+
+void F1_23_Parser::read(void) {
+    int packetSize = Udp.parsePacket(); 
+    if (packetSize) {
+        char packetBuffer[packetSize];
+        while(Udp.available())
+       {
+        Udp.read(packetBuffer, packetSize);
+       }
+       push(packetBuffer);
+    }
 }
 
 void F1_23_Parser::push(char * rcvBuffer)

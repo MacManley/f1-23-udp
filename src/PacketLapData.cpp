@@ -14,7 +14,7 @@ PacketLapData::~PacketLapData()
 
 void PacketLapData::push(char *receiveBuffer)
 {
-    std::memcpy(PHeader::pointerToFirstElement(), receiveBuffer, LAPDATA_BUFFER_SIZE);
+    std::memcpy(PHeader::firstElementPointer(), receiveBuffer, LAPDATA_BUFFER_SIZE);
 }
 
 uint8_t PacketLapData::m_timeTrialPBCarIdx(void)
